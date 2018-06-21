@@ -3,6 +3,7 @@ package elkTranGen;
 import java.io.IOException;
 import elkTranGen.conf.Read;
 import elkTranGen.out.OutputCreator;
+import elkTranGen.util.Logger;
 
 /**
  * Starting point of the program.
@@ -16,39 +17,32 @@ public class Main {
 	 * Main method. Does not take any parameters, all settings are made in the
 	 * configuration file. Calls a read of the file and gives settings onto the
 	 * output methods.
+	 * 
+	 * @throws IOException
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// no args allowed.
-		if(args.length > 0) {
+		if (args.length > 0) {
 			throw new IllegalArgumentException("No arguments allowed.");
 		}
-		//info
-		System.out.println("[INFO]: Starting random ElkT Generator.");
-		
-		//delete legacy pollution
-		System.out.println("[INFO]: Deleting legacy files.");
-		try {
+
+		Logger.printStart();
+		Logger.printLegacy();
 		OutputCreator.deleteLegacy();
-		} catch (NumberFormatException e) {
-			System.out.println("[INFO]: Number format exception.");
-		} catch (IOException e) {
-			System.out.println("[INFO]: IOException.");
-		}
-		
-		//read conf
-		System.out.println("[INFO]: Reading properties. ");
-		String numberOfFiles = Read.readProperty("numberOfFiles");
-		
-		// call output
-		System.out.println("[INFO]: Starting file creation.");
-		try {
-			OutputCreator.print(Integer.valueOf(numberOfFiles));
-		} catch (NumberFormatException e) {
-			System.out.println("[INFO]: Number format exception.");
-		} catch (IOException e) {
-			System.out.println("[INFO]: IOException.");
-		}
-		
-		System.out.println("[INFO]: File generation done.");
+
+		// read conf
+		Logger.printProperties();
+		int numberOfFiles = Integer.valueOf(Read.readProperty("numberOfFiles"));
+		int lowerBoundAmount = Integer.valueOf(Read.readProperty("lowerBoundAmount"));
+		int upperBoundAmount = Integer.valueOf(Read.readProperty("upperBoundAmount"));
+		int lowerBoundWidth = Integer.valueOf(Read.readProperty("lowerBoundWidth"));
+		int UpperBoundWidth = Integer.valueOf(Read.readProperty("upperBoundWidth"));
+		int lowerBoundHeight = Integer.valueOf(Read.readProperty("lowerBoundHeight"));
+		int upperBoundHeight = Integer.valueOf(Read.readProperty("upperBoundHeight"));
+
+		Logger.printFileCreation();
+		OutputCreator.print(numberOfFiles, lowerBoundAmount, upperBoundAmount, lowerBoundWidth, UpperBoundWidth,
+				lowerBoundHeight, upperBoundHeight);
+		Logger.printFileCreationDone();
 	}
 }
