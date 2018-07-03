@@ -4,6 +4,7 @@ import java.io.IOException;
 import elkTranGen.conf.Read;
 import elkTranGen.out.OutputCreator;
 import elkTranGen.util.Logger;
+import elkTranGen.util.PropertyNames;
 
 /**
  * Starting point of the program.
@@ -32,17 +33,19 @@ public class Main {
 
 		// read conf
 		Logger.printProperties();
-		int numberOfFiles = Integer.valueOf(Read.readProperty("numberOfFiles"));
-		int lowerBoundAmount = Integer.valueOf(Read.readProperty("lowerBoundAmount"));
-		int upperBoundAmount = Integer.valueOf(Read.readProperty("upperBoundAmount"));
-		int lowerBoundWidth = Integer.valueOf(Read.readProperty("lowerBoundWidth"));
-		int UpperBoundWidth = Integer.valueOf(Read.readProperty("upperBoundWidth"));
-		int lowerBoundHeight = Integer.valueOf(Read.readProperty("lowerBoundHeight"));
-		int upperBoundHeight = Integer.valueOf(Read.readProperty("upperBoundHeight"));
+		
+		int numberOfFiles = Integer.valueOf(Read.readProperty(PropertyNames.NUMBER_OF_FILES));
+		int lowerBoundAmount = Integer.valueOf(Read.readProperty(PropertyNames.LOWER_BOUND_AMOUNT));
+		int upperBoundAmount = Integer.valueOf(Read.readProperty(PropertyNames.UPPER_BOUND_AMOUNT));
+		int lowerBoundWidth = Integer.valueOf(Read.readProperty(PropertyNames.LOWER_BOUND_WIDHT));
+		int UpperBoundWidth = Integer.valueOf(Read.readProperty(PropertyNames.UPPER_BOUND_WIDTH));
+		int lowerBoundHeight = Integer.valueOf(Read.readProperty(PropertyNames.LOWER_BOUND_HEIGHT));
+		int upperBoundHeight = Integer.valueOf(Read.readProperty(PropertyNames.UPPER_BOUND_HEIGHT));
+		int step = Integer.valueOf(Read.readProperty(PropertyNames.STEP));
 
 		Logger.printFileCreation();
 		OutputCreator.print(numberOfFiles, lowerBoundAmount, upperBoundAmount, lowerBoundWidth, UpperBoundWidth,
-				lowerBoundHeight, upperBoundHeight);
+				lowerBoundHeight, upperBoundHeight, step);
 		Logger.printFileCreationDone();
 	}
 }

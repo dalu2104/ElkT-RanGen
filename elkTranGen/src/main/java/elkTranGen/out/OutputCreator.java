@@ -16,20 +16,30 @@ public class OutputCreator {
 	private static File outputDir;
 
 	/**
-	 * Creates the given amount of files with a random number of nodes with random
-	 * sizes.
+	 * Creates the given amount of files with a random number of nodes with
+	 * random sizes.
 	 * 
 	 * @param numberOfObjects
+	 *            Number of Files to be created.
 	 * @param upperBoundHeight
+	 *            Upper bound of the height of the nodes.
 	 * @param lowerBoundHeight
+	 *            Lower bound of the height of the nodes.
 	 * @param upperBoundWidth
+	 *            Upper bound of the width of the nodes.
 	 * @param lowerBoundWidth
+	 *            Lower bound of the width of the nodes.
 	 * @param upperBoundAmount
+	 *            Upper bound of the amount of nodes.
 	 * @param lowerBoundAmount
+	 *            Lower bound of the amount of nodes.
+	 * @param step
+	 *            Steps between single widths and heights. E.g., step of 5 will
+	 *            cause dimensions of 5, 10, 15, 20,...
 	 * @throws IOException
 	 */
 	public static void print(int numberOfObjects, int lowerBoundAmount, int upperBoundAmount, int lowerBoundWidth,
-			int upperBoundWidth, int lowerBoundHeight, int upperBoundHeight) throws IOException {
+			int upperBoundWidth, int lowerBoundHeight, int upperBoundHeight, int step) throws IOException {
 
 		// create output directory if it does not exist already
 		if (!outputDir.exists()) {
@@ -59,8 +69,8 @@ public class OutputCreator {
 
 			for (int j = 0; j < numberOfNodes; j++) {
 				// random size
-				int width = Rand.randInt(lowerBoundWidth, upperBoundWidth);
-				int height = Rand.randInt(lowerBoundHeight, upperBoundHeight);
+				int width = Rand.randInt(lowerBoundWidth, upperBoundWidth) * step;
+				int height = Rand.randInt(lowerBoundHeight, upperBoundHeight) * step;
 
 				// body of files
 				writer.println("node n" + String.valueOf(j) + "{");
