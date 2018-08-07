@@ -61,7 +61,8 @@ public class OutputCreator {
 			writer = new PrintWriter(newFileName, "UTF-8");
 
 			// header
-			writer.println("algorithm: org.eclipse.elk.box");
+			writer.println("algorithm: rectPacking");
+			writer.println("aspectRatio: 1.3");
 			writer.println("");
 
 			// body random number of Nodes

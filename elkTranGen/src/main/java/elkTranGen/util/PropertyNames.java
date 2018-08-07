@@ -13,7 +13,17 @@ public enum PropertyNames {
 	UPPER_BOUND_WIDTH("upperBoundWidth"),
 	LOWER_BOUND_HEIGHT("lowerBoundHeight"),
 	UPPER_BOUND_HEIGHT("upperBoundHeight"),
-	STEP("step");
+	STEP("step"),
+	
+	SC_ENABLE_ONE_BIG_REGION("enableOneBigRegion"),
+	SC_LOWER_BOUND_SMALLER_REGIONS_WIDTH("lowerBoundSmallerRegionsWidth"),
+	SC_LOWER_BOUND_SMALLER_REGIONS_HEIGHT("lowerBoundSmallerRegionsHeight"),
+	SC_UPPER_BOUND_SMALLER_REGIONS_WIDTH("upperBoundSmallerRegionsWidth"),
+	SC_UPPER_BOUND_SMALLER_REGIONS_HEIGHT("upperBoundSmallerRegionsHeight"),
+	SC_LOWER_BOUND_BIG_REGION_WIDTH("lowerBoundBigRegionWidth"),
+	SC_LOWER_BOUND_BIG_REGION_HEIGHT("lowerBoundBigRegionHeight"),
+	SC_UPPER_BOUND_BIG_REGION_WIDTH("upperBoundBigRegionsWidth"),
+	SC_UPPER_BOUND_BIG_REGION_HEIGHT("upperBoundBigRegionsHeight");
 	
     private final String name;
 
