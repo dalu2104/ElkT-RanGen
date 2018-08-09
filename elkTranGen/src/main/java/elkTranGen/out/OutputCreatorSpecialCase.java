@@ -78,11 +78,6 @@ public class OutputCreatorSpecialCase {
 			Logger.printFileCreated(newFileName);
 			writer = new PrintWriter(newFileName, "UTF-8");
 
-			// header
-			writer.println("algorithm: rectPacking");
-			writer.println("aspectRatio: 1.3");
-			writer.println("");
-
 			// body random number of Nodes
 			int numberOfNodes = Rand.randInt(lowerBoundAmount, upperBoundAmount);
 			

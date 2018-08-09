@@ -63,11 +63,6 @@ public class OutputCreator {
 			Logger.printFileCreated(newFileName);
 			writer = new PrintWriter(newFileName, "UTF-8");
 
-			// header
-			writer.println("algorithm: rectPacking");
-			writer.println("aspectRatio: 1.3");
-			writer.println("");
-
 			for (int j = 0; j < numberOfNodes; j++) {
 				// random size
 				int width = Rand.randInt(lowerBoundWidth, upperBoundWidth) * step;
