@@ -55,8 +55,11 @@ public class OutputCreator {
 
 		// creates number of specified files
 		for (int i = 0; i < numberOfObjects; i++) {
+			// body random number of Nodes
+			int numberOfNodes = Rand.randInt(lowerBoundAmount, upperBoundAmount);
+			
 			// create file
-			newFileName = "outputFiles/ElkTTestFile" + String.valueOf(counter) + ".elkt";
+			newFileName = "outputFiles/Size" + numberOfNodes + "ElkTTestFile" + String.valueOf(counter) + ".elkt";
 			Logger.printFileCreated(newFileName);
 			writer = new PrintWriter(newFileName, "UTF-8");
 
@@ -64,9 +67,6 @@ public class OutputCreator {
 			writer.println("algorithm: rectPacking");
 			writer.println("aspectRatio: 1.3");
 			writer.println("");
-
-			// body random number of Nodes
-			int numberOfNodes = Rand.randInt(lowerBoundAmount, upperBoundAmount);
 
 			for (int j = 0; j < numberOfNodes; j++) {
 				// random size
