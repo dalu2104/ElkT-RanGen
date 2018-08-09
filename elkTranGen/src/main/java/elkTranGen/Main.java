@@ -60,7 +60,7 @@ public class Main {
 				.valueOf(Read.readProperty(PropertyNames.SC_LOWER_BOUND_BIG_REGION_HEIGHT));
 		int upperBoundBigRegionsWidth = Integer
 				.valueOf(Read.readProperty(PropertyNames.SC_UPPER_BOUND_BIG_REGION_WIDTH));
-		int upperBoundBigRegionsHeight = Integer.valueOf(Read.readProperty(PropertyNames.UPPER_BOUND_HEIGHT));
+		int upperBoundBigRegionsHeight = Integer.valueOf(Read.readProperty(PropertyNames.SC_UPPER_BOUND_BIG_REGION_HEIGHT));
 
 		Logger.printFileCreation();
 		OutputCreator.print(numberOfFiles, lowerBoundAmount, upperBoundAmount, lowerBoundWidth, UpperBoundWidth,
